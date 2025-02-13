@@ -30,6 +30,16 @@
 	<meta name="twitter:url" content="https://bret.is/" />
 	
 	<style>
+		:root {
+			--color-brethudson: #bb54da;
+			--color-seattle: #6bcc49;
+			--color-linkedin: #0070f3;
+			--color-devolver: #dc4144;
+			--color-writegames: #f7df0a;
+			--color-thefizz: #af6ded;
+			--color-bubbledragon: #91DAF7;
+		}
+		
 		html,
 		body {
 			min-height: 100%;
@@ -112,6 +122,13 @@
 			content: '* ';
 		}
 		
+		h3 span {
+			display: inline-block;
+			font-size: 0.5em;
+			opacity: 0.6;
+			vertical-align: super;
+		}
+		
 		h4 {
 			font-size: 1.7rem;
 			color: #c0c0c0;
@@ -142,7 +159,7 @@
 		}
 		
 		a[href]:hover,
-		a[href]:focus {
+		a[href]:focus-visible {
 			cursor: pointer;
 			color: #f3f3f3;
 		}
@@ -165,25 +182,33 @@
 		
 		<div class="section">
 			<h4>currently living in</h4>
-			<h3><a style="--link_color: #6bcc49" href="https://visitseattle.org/">Seattle, WA</a></h3>
+			<h3><a style="--link_color: var(--color-seattle)" href="https://visitseattle.org/">Seattle, WA</a></h3>
 		</div>
 		
 		<div class="section">
-			<h4>actively</h4>
-			<h3><a style="--link_color: #0070f3" href="https://www.linkedin.com/in/bret-hudson/">looking for work</a></h3>
+			<h4>making websites for</h4>
+			<h3><a style="--link_color: var(--color-devolver)" href="https://www.devolverdigital.com/">Devolver Digital</a></h3>
+		</div>
+		
+		<hr />
+		
+		<div class="section">
+			<h4>proud to have released</h4>
+			<h3><a style="--link_color: var(--color-bubbledragon)" href="https://brethudson.github.io/bubble-dragon/">Bubble Dragon</a> <span>(2025,&nbsp;January)</span></h3>
+			<h3><a style="--link_color: var(--color-thefizz)" href="https://thefizz.blog">The<wbr>Fizz<wbr>.Blog</a> <span>(2024,&nbsp;August)</span></h3>
 		</div>
 		
 		<hr />
 		
 		<div class="section">
 			<h4>working on</h4>
-			<h3><a style="--link_color: #f7df0a" href="https://writegames.com">WriteGames.com</a></h3>
+			<h3><a style="--link_color: var(--color-writegames)" href="https://writegames.com">Write<wbr>Games<wbr>.com</a></h3>
 		</div>
 		
 		<hr />
 		
 		<div class="section footer">
-			...also online at <a style="--link_color: #bb54da" href="https://brethudson.com">brethudson.com</a>
+			...also online at <a style="--link_color: var(--color-brethudson)" href="https://brethudson.com">brethudson.com</a>
 		</div>
 	</div>
 </body>
