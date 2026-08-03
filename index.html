@@ -31,16 +31,19 @@
 	
 	<style>
 		:root {
+			--color-primary: #e9efff;
+			--color-secondary: #c0c5d3;
+			
 			--color-brethudson: #bb54da;
 			--color-seattle: #6bcc49;
 			--color-linkedin: #0070f3;
 			--color-devolver: #dc4144;
 			--color-recurse: #4d9bd8;
-			--color-writegames: #f7df0a;
-			--color-canvas-lord: #ad0ddb;
 			--color-thefizz: #af6ded;
-			--color-bubbledragon: #91DAF7;
 			--color-gorn2: #c93426;
+			--color-sketches: #d7d04a;
+			--color-pixelscapes: #d6de51;
+			--color-pickblock: #2ecc71;
 		}
 		
 		html,
@@ -55,30 +58,6 @@
 			font-family: 'Mansalva', Verdana;
 		}
 		
-		@media (max-width: 767.98px) {
-			html {
-				font-size: 12px;
-			}
-		}
-		
-		@media (min-width: 768px) and (max-width: 991.98px) {
-			html {
-				font-size: 13px;
-			}
-		}
-		
-		@media (min-width: 992px) and (max-width: 1199.98px) {
-			html {
-				font-size: 14px;
-			}
-		}
-		
-		@media (min-width: 1200px) {
-			html {
-				font-size: 16px;
-			}
-		}
-		
 		body {
 			display: flex;
 			flex-direction: column;
@@ -90,8 +69,8 @@
 			overflow-y: scroll;
 			line-height: 1.2;
 			font-weight: 300;
-			background-color: #22252C;
-			color: #f3f3f3;
+			background-color: #222533;
+			color: var(--color-primary);
 			box-sizing: border-box;
 		}
 		
@@ -99,7 +78,17 @@
 			box-sizing: border-box;
 			width: 100%;
 			max-width: 50rem;
-			padding: 0 3rem;
+			padding: 0 var(--padding);
+			
+			@media (width < 32.5em) {
+				--padding: .5rem;
+			}
+			@media (width < 37.5em) {
+				--padding: 1.5rem;
+			}
+			@media( width >= 37.5em) {
+				--padding: 3rem;
+			}
 		}
 		
 		h1, h2, h3, h4, h5, h6 {
@@ -112,108 +101,156 @@
 		
 		h2 {
 			font-size: 1.7rem;
-			color: #c0c0c0;
+			color: var(--color-secondary);
 			font-style: italic;
 		}
 		
-		h3 {
-			font-size: 3rem;
-			text-transform: uppercase;
-		}
-		
-		h3::before {
-			content: '* ';
-		}
-		
-		h3 span {
-			display: inline-block;
-			font-size: 0.5em;
-			opacity: 0.6;
-			vertical-align: super;
-		}
-		
-		h4 {
-			font-size: 1.7rem;
-			color: #c0c0c0;
-			font-style: italic;
-			margin-bottom: 0.25rem;
-		}
-		
-		h3 + h3 {
-			margin-top: 0.25rem;
+		ul {
+			margin: 0;
+			padding: 0;
 		}
 		
 		.section {
 			margin: 3.125rem 0;
+			margin: 2.5rem 0;
+			
+			> li {
+				list-style-type: none;
+				font-size: 1.5rem;
+				color: var(--color-secondary);
+				font-style: italic;
+				margin-bottom: 0.25rem;
+			}
+		}
+		
+		.list {
+			font-size: 2.5rem;
+			
+			@media (width < 32.5em) {
+				padding-inline-start: 0.25em;
+			}
+			@media (width >= 32.5em) {
+				padding-inline-start: 0.3125em;
+			}
+			
+			li {
+				font-size: 2.5rem;
+				text-transform: uppercase;
+				list-style-type: none;
+				font-weight: 700;
+				margin-block: .25em;
+				
+				@media (width >= 32.5em) {
+					&:nth-child(2n + 1) {
+						padding-inline-start: .125em;
+					}
+					
+					&::before {
+						content: '*\00a0';
+						color: var(--color-primary);
+						font-size: 0.5em;
+						padding-right: 0.25em;
+						vertical-align: center;
+					}
+				}
+				
+				span {
+					display: inline-block;
+					font-size: 0.5em;
+					opacity: 0.6;
+					vertical-align: super;
+				}
+				
+				+ li {
+					margin-top: .4125em;
+				}
+			}
 		}
 		
 		hr {
 			border: 0;
-			border-top: 1px dashed #c0c0c0;
+			border-top: 1px dashed var(--color-secondary);
 			margin: -0.3125rem 0;
 		}
 		
 		a {
+			--hover-color: var(--link-color);
+			
 			cursor: text;
-			text-decoration: none;
-			color: #FF668F;
-			color: var(--link_color);
-			transition: .1s color;
+			text-decoration-style: dashed;
+			text-decoration-inset: .25em;
+			text-decoration-color: rgb(from var(--link-color) r g b / .7);
+			text-underline-offset: .25em;
+			color: var(--color-primary);
+			
+			transition: .2s all;
 		}
-		
+				
 		a[href]:hover,
 		a[href]:focus-visible {
 			cursor: pointer;
-			color: #f3f3f3;
+			color: var(--hover-color);
+			text-decoration-inset: 0em;
+			text-decoration-color: rgb(from var(--link-color) r g b / 0);
 		}
 		
 		.footer {
 			text-align: center;
 			font-size: 2rem;
-			color: #c0c0c0;
+			color: #c0c3c9;
 		}
 	</style>
 </head>
 <body>
 	<div class="wrapper">
-		<div class="section">
+		<ul class="section">
 			<h1>bret.is</h1>
 			<h2>usually doing a lot of things!</h2>
-		</div>
+		</ul>
 		
 		<hr />
 		
-		<div class="section">
-			<h4>...currently living in</h4>
-			<h3><a style="--link_color: var(--color-seattle)" href="https://visitseattle.org/">Seattle, WA</a></h3>
-		</div>
+		<ul class="section">
+			<li>...currently living in</li>
+			<ul class="list">
+				<li><a style="--link-color: var(--color-seattle)" href="https://visitseattle.org/">Seattle, WA</a></li>
+			</ul>
+		</ul>
 		
-		<div class="section">
-			<h4>...attending the Summer 1 batch at</h4>
-			<h3><a style="--link_color: var(--color-recurse)" href="https://www.recurse.com/">the Recurse Center</a></h3>
-		</div>
-		
-		<hr />
-		
-		<div class="section">
-			<h4>...proud to have released</h4>
-			<h3><a style="--link_color: var(--color-gorn2)" href="https://gorn2.com">Gorn2.com</a> <span>(2025,&nbsp;February)</span></h3>
-			<h3><a style="--link_color: var(--color-bubbledragon)" href="https://brethudson.github.io/bubble-dragon/">Bubble Dragon</a> <span>(2025,&nbsp;January)</span></h3>
-			<h3><a style="--link_color: var(--color-thefizz)" href="https://thefizz.blog">The<wbr>Fizz<wbr>.Blog</a> <span>(2024,&nbsp;August)</span></h3>
-		</div>
+		<ul class="section">
+			<li>...taking the time to figure out</li>
+			<ul class="list">
+				<li>what's next</li>
+			</ul>
+		</ul>
 		
 		<hr />
 		
-		<div class="section">
-			<h4>...working on</h4>
-			<h3><a style="--link_color: var(--color-writegames)" href="https://writegames.com">Write<wbr>Games<wbr>.com</a></h3>
-			<h3><a style="--link_color: var(--color-canvas-lord)" href="https://github.com/WriteGames/canvas-lord">Canvas Lord</a></h3>
-		</div>
+		<ul class="section">
+			<li>...excited to have shipped</li>
+			<ul class="list">
+				<li><a style="--link-color: var(--color-thefizz)" href="https://thefizz.blog">The<wbr>Fizz<wbr>.Blog</a> </li>
+				<li><a style="--link-color: var(--color-gorn2)" href="https://gorn2.com">Gorn2.com</a> </li>
+				<li><a style="--link-color: var(--color-sketches)" href="https://www.youtube.com/playlist?list=PL4ZifdwHGzxh_7L3u0wSuS4FehuCUF7ez">60 Daily Sketches</a></li>
+				<li><a style="--link-color: var(--color-pickblock)" href="https://brethudson.github.io">Pickblock</a> </li>
+			</ul>
+		</ul>
+		
+		<hr />
+		
+		<ul class="section">
+			<li>...working on</li>
+			<ul class="list">
+				<li>
+					<a style="--link-color: var(--color-pixelscapes)" href="https://play.google.com/store/apps/details?id=com.brethudson.starswallpaper">Pixelscapes v2</a>
+				</li>
+			</ul>
+		</ul>
 		
 		<hr />
 		
 		<div class="section footer">
-			...also online at <a style="--link_color: var(--color-brethudson)" href="https://brethudson.com">brethudson.com</a>
+			...also online at <a style="--link-color: var(--color-brethudson)" href="https://brethudson.com">brethudson.com</a>
 		</div>
 	</div>
 </body>
